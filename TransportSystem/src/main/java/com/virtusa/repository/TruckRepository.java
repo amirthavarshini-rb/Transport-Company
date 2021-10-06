@@ -14,6 +14,6 @@ public interface TruckRepository extends JpaRepository<Trucks, Integer> {
 	public List<Trucks> findAllByLocation(String location);
 	
 	boolean existsByModel(String model);
-	boolean existsByTruckNum(String truckNum);
+	boolean existsByTruckNum(String truckNum); 
 
 }

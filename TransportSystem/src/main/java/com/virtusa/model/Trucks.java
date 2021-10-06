@@ -18,10 +18,9 @@ import lombok.NoArgsConstructor;
 public class Trucks {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	//truck id, model, location, status,  vehicle num, owner, owner contact , insurance details ,description
 	private int tid;
 	private String model ;
-	private String location;
+	private String location; 
 	private boolean status;
 	private String truckNum;
 	private String ownerName;
