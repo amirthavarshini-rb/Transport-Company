@@ -18,14 +18,16 @@ import lombok.NoArgsConstructor;
 public class Trucks {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	//truck id, model, location, status,  vehicle num, owner, owner contact , insurance details ,description
 	private int tid;
-	private String model;
+	private String model ;
 	private String location;
 	private boolean status;
-	
-	public int getTid() {
-		return tid;
-	}
+	private String truckNum;
+	private String ownerName;
+	private String ownerContact;
+	private String insuranceDetails;
+	private String description;
 	public String getModel() {
 		return model;
 	}
@@ -44,11 +46,44 @@ public class Trucks {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	public String getTruckNum() {
+		return truckNum;
+	}
+	public void setTruckNum(String truckNum) {
+		this.truckNum = truckNum;
+	}
+	public String getOwnerName() {
+		return ownerName;
+	}
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+	public String getOwnerContact() {
+		return ownerContact;
+	}
+	public void setOwnerContact(String ownerContact) {
+		this.ownerContact = ownerContact;
+	}
+	public String getInsuranceDetails() {
+		return insuranceDetails;
+	}
+	public void setInsuranceDetails(String insuranceDetails) {
+		this.insuranceDetails = insuranceDetails;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getTid() {
+		return tid;
+	}
 	@Override
 	public String toString() {
-		return "Trucks [tid=" + tid + ", model=" + model + ", location=" + location + ", status=" + status + "]";
+		return "Trucks [tid=" + tid + ", model=" + model + ", location=" + location + ", status=" + status
+				+ ", truckNum=" + truckNum + ", ownerName=" + ownerName + ", ownerContact=" + ownerContact
+				+ ", insuranceDetails=" + insuranceDetails + ", description=" + description + "]";
 	}
 	
-	
-
 }

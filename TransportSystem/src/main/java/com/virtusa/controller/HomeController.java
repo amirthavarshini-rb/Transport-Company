@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -150,18 +151,18 @@ public class HomeController {
     	User user = userRepo.findByUserName(jwtUtil.extractUsername(token));
     	if(user.getRole().equals("MANAGER")||user.getRole().equals("ADMIN")) {
     	truckRepo.save(truck);
-		return truckRepo.findByModel(truck.getModel());}
-    	else {truck.setModel("Access denied");
+		return truckRepo.findByTruckNum(truck.getTruckNum());}
+    	else {truck.setTruckNum("Access denied");
     	return(truck);}
 	}
     
     @RequestMapping("/updateTruck")
     @ResponseBody
-	public Trucks updateTruck(@RequestParam("token") String token,@RequestParam("model") String model,Trucks truck) {
+	public Trucks updateTruck(@RequestParam("token") String token,@RequestParam("truckNum") String truckNum,Trucks truck) {
     	int updateFlag=0;
     	User user = userRepo.findByUserName(jwtUtil.extractUsername(token));
     	if(user.getRole().equals("MANAGER")||user.getRole().equals("ADMIN")) {
-		if (truckRepo.existsByModel(model)) {
+		if (truckRepo.existsByTruckNum(truckNum)) {
 			//truckRepo.deleteById(truckRepo.findByModel(model).getTid());
 			truck.setStatus(true);
 			truck.setLocation(truck.getLocation());
@@ -171,14 +172,14 @@ public class HomeController {
 		}
 		//System.out.println(truck);
 		if(updateFlag==1) {
-			return truckRepo.findByModel(model);
+			return truckRepo.findByTruckNum(truckNum);
 		}
 		else {
-			truck.setModel("No truck found");
+			truck.setTruckNum("No truck found");
 			return(truck);
 			}
 		}
-    	else {truck.setModel("Access Denied");
+    	else {truck.setTruckNum("Access Denied");
 		return(truck);}
     	}
     
@@ -197,14 +198,18 @@ public class HomeController {
   
     @PostMapping("/findTruck")
     @ResponseBody
-    public Trucks findTruck(@RequestParam("token") String token,@RequestParam("model") String model) {
+    public Trucks findTruck(@RequestParam("token") String token,@RequestParam("truckNum") String truckNum) {
     	User user = userRepo.findByUserName(jwtUtil.extractUsername(token));
     	if(user.getRole().equals("MANAGER")||user.getRole().equals("ADMIN")) {
-    	System.out.println(model);
-		return (truckRepo.findByModel(model));
+    	System.out.println(truckNum);
+		return (truckRepo.findByTruckNum(truckNum));
 	}
     	else {Trucks truck=new Trucks();
-    	truck.setModel("Access Denied");
+    	truck.setTruckNum("Access Denied");
     	return(truck);}
 }
+    
+
+    
+    
 }
