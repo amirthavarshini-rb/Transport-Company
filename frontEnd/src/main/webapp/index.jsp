@@ -13,7 +13,7 @@
 body {
      background-image: url("https://image.winudf.com/v2/image/Y29tLnN1bW1lcmFwcHMudHJ1Y2t3YWxscGFwZXJzX3NjcmVlbl82XzE1MDg5MzE3ODRfMDg1/screen-6.jpg?h=800&fakeurl=1&type=.jpg");
 	 min-height: 100%;
-  
+ 
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center center;
@@ -24,6 +24,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 50px;
+	
 }
 
 h1 {
@@ -303,6 +304,7 @@ footer a {
 		
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
+			<input>
 		<!-- 	<input list="Acc type1" name="Acc type1" placeholder="Login As" />
 <datalist id="Acc type1">
   <option value="User">
