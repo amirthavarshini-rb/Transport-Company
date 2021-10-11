@@ -267,19 +267,19 @@ footer a {
 </head>
 <body  >
 
-<h1>Transport Company </h1>
+<h1 style="color:white">Transport Company </h1>
 <pre> 
 </pre>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form name="sform"  action="#"    onsubmit="return validateForm()">
 			<h1>Create Account</h1>
 			
-			<input type="text" placeholder="Name" required/>
-			<input type="text" placeholder="UserName"  required/>
-			<input type="email" placeholder="Email"   required/>
-			<input type="password" placeholder="Password"  required/>
-			<input list="loc type" name="loc type" placeholder="Location" required />
+			<input type="text" placeholder="Name" name="fname" id="name"  />
+			<input type="text" placeholder="UserName" name="uname"  id="userName"  />
+			<input type="email" placeholder="Email"  name="email"  />
+			<input type="password" placeholder="Password"  name="pwd"  />
+			<input list="loc type" name="loc type" placeholder="Location" />
 <datalist id="loc type">
   <option value="Chennai">
   <option value="Madurai">
@@ -302,8 +302,8 @@ footer a {
 			
 			
 		
-			<input type="email" placeholder="Email" required/>
-			<input type="password" placeholder="Password" required/>
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
 			
 		<!-- 	<input list="Acc type1" name="Acc type1" placeholder="Login As" />
 <datalist id="Acc type1">
@@ -346,6 +346,34 @@ footer a {
 
 
 <script>
+
+
+
+
+<!--function validateForm() {
+	  let x = document.forms["sform"]["fname"].value;
+	  if (x == "") {
+	    alert("Name must be filled out");
+	    return false;
+	  }
+	  
+	  let y = document.forms["sform"]["uname"].value;
+	  if (y == "") {
+	    alert("UserName must be filled out");
+	    return false;
+	  }
+	  let z = document.forms["sform"]["pwd"].value;
+	  var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;  
+	  if (z.value.match(passw)) {  
+	         alert('correct...')  
+	         return true;  
+	      }  
+	      else {  
+	         alert('Wrong...!')  
+	         return false;  
+	      }  
+}-->  
+
 
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
