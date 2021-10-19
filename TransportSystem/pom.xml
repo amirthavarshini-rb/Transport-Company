@@ -16,6 +16,7 @@
 	<description>training project for virtusa</description>
 	<properties>
 		<java.version>11</java.version>
+		<sonar.sources>C:/Users/USER/git/Transport-Company/TransportSystem/src</sonar.sources>
 	</properties>
 	<dependencies>
 		<dependency>
