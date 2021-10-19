@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Table(name="trucks")
 public class Trucks {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int tid;
 	private String model ;
 	private String location; 
@@ -74,6 +73,10 @@ public class Trucks {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public void setTid(int tid) {
+		this.tid = tid;
 	}
 	public int getTid() {
 		return tid;
