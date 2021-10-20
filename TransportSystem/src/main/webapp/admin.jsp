@@ -1,8 +1,9 @@
 
 <!--  -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>Admin Page</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet"
@@ -258,16 +259,16 @@ form -->.leave-request-form {
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0"
 				; style="background-color: gray">
-
+			<caption style="display:none"></caption>
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Branch</th>
+						<th scope="col">Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Branch</th>
 
 					</tr>
 				</thead>
-
+				<tbody style="display:none"><tr><td></td><td></td><td></td></tr></tbody>
 			</table>
 		</div>
 		<div class="tbl-content" id="requiredTable"></div>
@@ -280,26 +281,26 @@ form -->.leave-request-form {
 	<section id="table2">
 		<div style="padding-left: 1000px">
 			<input style="background-color: gray; width: 25px;"
-				readonly="readonly"><b style="color: white;"> Delete </b> <input
-				style="background-color: white; width: 25px;" readonly="readonly"><b
-				style="color: white;"> Edit </b>
+				readonly="readonly"><strong style="color: white;"> Delete </strong> <input
+				style="background-color: white; width: 25px;" readonly="readonly"><strong
+				style="color: white;"> Edit </strong>
 		</div>
 		<!--for demo wrap-->
 		<h1 style="color: white;">Manager Details</h1>
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0"
 				; style="background-color: gray">
-
+				<caption style="display:none"></caption>
 				<tr>
-					<th>Name</th>
-					<th>User Name</th>
-					<th>Email Id</th>
-					<th>Branch</th>
-					<th>Password</th>
-					<th style="padding-left: 55px;">Manipulate</th>
+					<th scope="col">Name</th>
+					<th scope="col">User Name</th>
+					<th scope="col">Email Id</th>
+					<th scope="col">Branch</th>
+					<th scope="col">Password</th>
+					<th scope="col" style="padding-left: 55px;">Manipulate</th>
 
 				</tr>
-
+				<tbody style="display:none"><tr><td></td><td></td><td></td></tr></tbody>
 			</table>
 		</div>
 		<div class="tbl-content" id="editManagerTable"></div>
@@ -314,19 +315,19 @@ form -->.leave-request-form {
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0"
 				; style="background-color: gray">
-
+<caption style="display:none"></caption>
 				<tr>
-					<th>Description</th>
-					<th>Vehicle type</th>
-					<th>Location</th>
-					<th>Status</th>
-					<th>Vehicle NO</th>
-					<th>Owner Name</th>
-					<th>Owner Contact</th>
-					<th>Insurance Status</th>
-					<th>Truck Id</th>
+					<th scope="col">Description</th>
+					<th scope="col">Vehicle type</th>
+					<th scope="col">Location</th>
+					<th scope="col">Status</th>
+					<th scope="col">Vehicle NO</th>
+					<th scope="col">Owner Name</th>
+					<th scope="col">Owner Contact</th>
+					<th scope="col">Insurance Status</th>
+					<th scope="col">Truck Id</th>
 				</tr>
-
+				<tbody style="display:none"><tr><td></td><td></td><td></td></tr></tbody>
 			</table>
 		</div>
 		<div class="tbl-content" id="allTrucksTable"></div>
@@ -349,14 +350,14 @@ form -->.leave-request-form {
 
 					<div class="col-md-2"></div>
 				</div>
-				<b>
+				<strong>
 					<h3 style="padding-left: 230px; margin-top: -5px; color: white;">EDIT
 						MANAGER</h3>
-				</b>
+				</strong>
 				<div class="form-group row"
 					style="align: center; width: 80%; margin-left: 10%; margin-top: 20px;">
 					<label style="color: white" for="example-text-input"
-						class="col-4 col-form-label">Name<b style="color: red">*</b></label>
+						class="col-4 col-form-label">Name<strong style="color: red">*</strong></label>
 					<div class="col-8">
 						<input class="form-control" required type="text" id="emname"
 							#emp_num>
@@ -367,7 +368,7 @@ form -->.leave-request-form {
 				<div class="form-group row"
 					style="align: center; width: 80%; margin-left: 10%; margin-top: 20px;">
 					<label style="color: white" for="example-text-input"
-						class="col-4 col-form-label">UserName<b style="color: red">*</b></label>
+						class="col-4 col-form-label">UserName<strong style="color: red">*</strong></label>
 					<div class="col-8">
 						<input class="form-control" required type="text" readonly
 							id="emuname" #emp_num>
@@ -378,7 +379,7 @@ form -->.leave-request-form {
 				<div class="form-group row"
 					style="width: 80%; margin-left: 10%; margin-top: 20px;">
 					<label style="color: white" for="example-text-input"
-						class="col-4 col-form-label">Email<b style="color: red">*</b></label>
+						class="col-4 col-form-label">Email<strong style="color: red">*</strong></label>
 					<div class="col-8">
 						<input class="form-control" required type="email" id="ememail"
 							#emp_num>
@@ -389,7 +390,7 @@ form -->.leave-request-form {
 				<div class="form-group row"
 					style="width: 80%; margin-left: 10%; margin-top: 20px;">
 					<label style="color: white" for="embranch"
-						class="col-4 col-form-label">Branch<b style="color: red">*</b></label>
+						class="col-4 col-form-label">Branch<strong style="color: red">*</strong></label>
 					<div class="col-8">
 						<select name="embranch" class="form-control" required type="text"
 							id="embranch" style="width: 100%; height: 30px" #emp_num>
@@ -405,7 +406,7 @@ form -->.leave-request-form {
 				<div class="form-group row"
 					style="width: 80%; margin-left: 10%; margin-top: 20px;">
 					<label style="color: white" for="example-text-input"
-						class="col-4 col-form-label">Password<b style="color: red">*</b></label>
+						class="col-4 col-form-label">Password<strong style="color: red">*</strong></label>
 					<div class="col-8">
 						<input class="form-control"
 							title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
@@ -452,14 +453,14 @@ form -->.leave-request-form {
 
 						<div class="col-md-2"></div>
 					</div>
-					<b>
+					<strong>
 						<h3 style="padding-left: 240px; margin-top: -5px; color: white;">ADD
 							MANAGER</h3>
-					</b>
+					</strong>
 					<div class="form-group row"
 						style="width: 80%; margin-left: 10%; margin-top: 20px;">
 						<label style="color: white;" for="example-text-input"
-							class="col-4 col-form-label">Name<b style="color: red">*</b></label>
+							class="col-4 col-form-label">Name<strong style="color: red">*</strong></label>
 						<div class="col-8">
 							<input style="width: 100%; height: 30px" class="form-control"
 								id="cnname" required type="text" #emp_num>
@@ -474,8 +475,8 @@ form -->.leave-request-form {
 					<div class="form-group row"
 						style="width: 80%; margin-left: 10%; margin-top: 20px;">
 						<label style="color: white;" for="example-text-input"
-							class="col-4 col-form-label">UserName<b
-							style="color: red">*</b></label>
+							class="col-4 col-form-label">UserName<strong
+							style="color: red">*</strong></label>
 						<div class="col-8">
 							<input style="width: 100%; height: 30px" class="form-control"
 								id="cnuname" required type="text"
@@ -487,7 +488,7 @@ form -->.leave-request-form {
 					<div class="form-group row"
 						style="width: 80%; margin-left: 10%; margin-top: 20px;">
 						<label style="color: white;" for="example-text-input"
-							class="col-4 col-form-label">Id<b style="color: red">*</b></label>
+							class="col-4 col-form-label">Id<strong style="color: red">*</strong></label>
 						<div class="col-8">
 							<input style="width: 100%; height: 30px" class="form-control"
 								id="cnid" required type="number"
@@ -502,7 +503,7 @@ form -->.leave-request-form {
 					<div class="form-group row"
 						style="width: 80%; margin-left: 10%; margin-top: 20px;">
 						<label style="color: white;" for="example-text-input"
-							class="col-4 col-form-label">Email<b style="color: red">*</b></label>
+							class="col-4 col-form-label">Email<strong style="color: red">*</strong></label>
 						<div class="col-8">
 							<input style="width: 100%; height: 30px" class="form-control"
 								id="cnemail" required="required" type="email" #emp_num>
@@ -513,7 +514,7 @@ form -->.leave-request-form {
 					<div class="form-group row"
 						style="width: 80%; margin-left: 10%; margin-top: 20px;">
 						<label style="color: white" for="cnbranch"
-							class="col-4 col-form-label">Branch<b style="color: red">*</b></label>
+							class="col-4 col-form-label">Branch<strong style="color: red">*</strong></label>
 						<div class="col-8">
 							<select name="cnbranch" class="form-control" id="cnbranch"
 								required type="text" style="width: 100%; height: 30px" #emp_num>
@@ -530,8 +531,8 @@ form -->.leave-request-form {
 					<div class="form-group row"
 						style="width: 80%; margin-left: 10%; margin-top: 20px;">
 						<label style="color: white" for="example-text-input"
-							class="col-4 col-form-label">Password<b
-							style="color: red">*</b></label>
+							class="col-4 col-form-label">Password<strong
+							style="color: red">*</strong></label>
 						<div class="col-8">
 							<!-- pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" -->
 							<input style="width: 100%; height: 30px" required id="cnpassword"
@@ -572,16 +573,16 @@ form -->.leave-request-form {
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0"
 				; style="background-color: gray">
-
+<caption style="display:none"></caption>
 				<thead>
 					<tr>
-						<th>UserName</th>
-						<th>Query</th>
-						<th>Response</th>
-						<th>Save Response</th>
+						<th scope="col">UserName</th>
+						<th scope="col">Query</th>
+						<th scope="col">Response</th>
+						<th scope="col">Save Response</th>
 					</tr>
 				</thead>
-
+				<tbody style="display:none"><tr><td></td><td></td><td></td></tr></tbody>
 			</table>
 		</div>
 		<div id="respondQuery"></div>

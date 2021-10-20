@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>User</title>
 <!-- icons -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,6 +31,26 @@ background-repeat:  no-repeat;
 margin-bottom: 4000px;
 height: 1000px;
 
+}
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  width: 1500px;
+  
+}
+
+.wrapper p {
+  position: absolute;
+  margin: 0;
+  line-height: 35px;
+  white-space: nowrap;
+  animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 .topnav {
@@ -431,7 +452,9 @@ padding-right: 20px;
  </div>
 
 <div style="padding-left:16px">
-<h2><marquee>We do transportation as reliable as running water </marquee></h2>
+<div class="wrapper">
+    <p style="font-size: 28px;">We do transportation as reliable as running water </p>
+</div>
 
   <h3 style="line-height: 40px;">Are you planning to move to a new place? Are you thinking to hire a reliable and professional online transportation services provider? Do you want to book a truck online but have no or less idea how to book it? If so, We can be the perfect solution for you. </h3>
  </div>
@@ -503,9 +526,10 @@ padding-right: 20px;
 
 
 
-<table  >
- 
-  
+<table>
+<caption style="display:none"></caption>
+ 	<tr style="display:none"><th scope="col"></th><th scope="col"></th></tr>
+  	
    <tr>
     <td CLASS="TA"><img src="https://trucknbus.hyundai.com/global/en/images/product/cars/hd38-78/best-choice-hd-series-m.jpg" alt="Avatar" style="width:100%;margin-top: 40px;">
   </td>
@@ -521,7 +545,7 @@ padding-right: 20px;
   <tr>
     
    <td CLASS="TA">
-   <h4 ><b id="truckname1">HYUNDAI HD35-78 </b>   <button style="font-size:15px" onclick="checkAvail('HYUNDAI HD35-78','date1','a1')"> <i class="fa fa-refresh"></i></button>   </h4> 
+   <h4 ><strong id="truckname1">HYUNDAI HD35-78 </strong>   <button style="font-size:15px" onclick="checkAvail('HYUNDAI HD35-78','date1','a1')"> <em class="fa fa-refresh"></em></button>   </h4> 
      <input  type="date" placeholder="Date" id="date1">
     <p>load : 2 Ton</p>
        <p style=" display:inline; ">Availability : </p>
@@ -532,7 +556,7 @@ padding-right: 20px;
     <td> </td>
     
     <td CLASS="TA">
-    <h4 > <b id="truckname2"> EICHER PRO TIPPER <button style="font-size:15px"  onclick="checkAvail('EICHER PRO TIPPER','date2','a2')"> <i class="fa fa-refresh"></i></button></b>    </h4> 
+    <h4 > <strong id="truckname2"> EICHER PRO TIPPER <button style="font-size:15px"  onclick="checkAvail('EICHER PRO TIPPER','date2','a2')"> <em class="fa fa-refresh"></em></button></strong>    </h4> 
     <input  type="date" placeholder="Date" id="date2">
     <p>load : 1.5 Ton</p>
        <p style=" display:inline; ">Availability : </p>
@@ -555,7 +579,7 @@ padding-right: 20px;
   <tr>
     
    <td CLASS="TA">
-   <h4 ><b id="truckname3"> TATA ACE  <button style="font-size:15px" onclick="checkAvail('TATA ACE','date3','a3')"> <i class="fa fa-refresh"></i></button></b>   </h4> 
+   <h4 ><strong id="truckname3"> TATA ACE  <button style="font-size:15px" onclick="checkAvail('TATA ACE','date3','a3')"> <em class="fa fa-refresh"></em></button></strong>   </h4> 
    <input  type="date" placeholder="Date" id="date3">
     <p >load : 1.5 Ton</p>
       <p style=" display:inline; ">Availability : </p>
@@ -566,7 +590,7 @@ padding-right: 20px;
     <td> </td>
     
     <td CLASS="TA">
-    <h4 ><b id="truckname4">FREEZER TRUCK   <button style="font-size:15px"  onclick="checkAvail('FREEZER TRUCK','date4','a4')"> <i class="fa fa-refresh"></i></button></b>    </h4> 
+    <h4 ><strong id="truckname4">FREEZER TRUCK   <button style="font-size:15px"  onclick="checkAvail('FREEZER TRUCK','date4','a4')"> <em class="fa fa-refresh"></em></button></strong>    </h4> 
     <input  type="date" placeholder="Date" id="date4">
     <p >load : 1.5 Ton</p>
       <p style=" display:inline; ">Availability : </p>
@@ -589,7 +613,7 @@ padding-right: 20px;
   <tr>
     
    <td CLASS="TA">
-   <h4 ><b id="truckname5">DIECAST    <button style="font-size:15px "  onclick="checkAvail('DIECAST','date5','a5')"> <i class="fa fa-refresh"></i></button></b>    </h4> 
+   <h4 ><strong id="truckname5">DIECAST    <button style="font-size:15px "  onclick="checkAvail('DIECAST','date5','a5')"> <em class="fa fa-refresh"></em></button></strong>    </h4> 
     <input  type="date" placeholder="Date" id="date5">
     <p>load : 1.7Ton</p>
      <p style=" display:inline; ">Availability : </p>
@@ -600,7 +624,7 @@ padding-right: 20px;
     <td> </td>
     
     <td CLASS="TA">
-    <h4 ><b id="truckname6">TATA TAURUS   <button style="font-size:15px"   onclick="checkAvail('TATA TAURUS','date6','a6')"> <i class="fa fa-refresh"></i></button> </b>   </h4> 
+    <h4 ><strong id="truckname6">TATA TAURUS   <button style="font-size:15px"   onclick="checkAvail('TATA TAURUS','date6','a6')"> <em class="fa fa-refresh"></em></button> </strong>   </h4> 
       <input  type="date" placeholder="Date" id="date6">
     <p>load : 1.5 Ton</p>
        <p style=" display:inline; ">Availability : </p>
@@ -624,7 +648,7 @@ padding-right: 20px;
   <tr>
     
    <td CLASS="TA">
-   <h4 ><b id="truckname7"> ASHOK LEYLAND TONNE TRUCK <button style="font-size:15px"   onclick="checkAvail('ASHOK LEYLAND TONNE TRUCK','date7','a7')"> <i class="fa fa-refresh"></i></button> </b>    </h4> 
+   <h4 ><strong id="truckname7"> ASHOK LEYLAND TONNE TRUCK <button style="font-size:15px"   onclick="checkAvail('ASHOK LEYLAND TONNE TRUCK','date7','a7')"> <em class="fa fa-refresh"></em></button> </strong>    </h4> 
     <input  type="date" placeholder="Date" id="date7">
     <p>load : 1.5 Ton</p>
        <p style=" display:inline; ">Availability : </p>
@@ -635,7 +659,7 @@ padding-right: 20px;
     <td> </td>
     
     <td CLASS="TA">
-    <h4 ><b id="truckname8">   CONTAINER 32 FT SXL <button style="font-size:15px"  onclick="checkAvail('CONTAINER 32 FT SXL','date8','a8')"> <i class="fa fa-refresh"></i></button> </b>    </h4> 
+    <h4 ><strong id="truckname8">   CONTAINER 32 FT SXL <button style="font-size:15px"  onclick="checkAvail('CONTAINER 32 FT SXL','date8','a8')"> <em class="fa fa-refresh"></em></button> </strong>    </h4> 
      <input  type="date" placeholder="Date" id="date8">
     
     <p>load : 2 Ton</p>
@@ -685,7 +709,7 @@ padding-right: 20px;
 
 <div class="rf" id="s" >
 <div> <!-- padding-left: 600px; -->
-<img width=1600px; height= 690px; style="  padding-top: 18px;  padding-right: 40px" src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8b25saW5lJTIwYm9va2luZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80">
+<img width=1600px; height= 690px; style="  padding-top: 18px;  padding-right: 40px" src="https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8b25saW5lJTIwYm9va2luZ3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="img">
     
     <div style="margin-top: -671.5px;  padding-bottom: 1px; "  class="form" >
     
@@ -795,9 +819,9 @@ background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);">
     <hr style="width:200px" class="w3-opacity">
 
     <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> INDIA</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: 99999 99999</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: trasport@mail.com</p>
+      <p><em class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></em> INDIA</p>
+      <p><em class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></em> Phone: 99999 99999</p>
+      <p><em class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </em> Email: trasport@mail.com</p>
     </div><br>
     
      <form onSubmit="return query()" method="POST">
@@ -1057,7 +1081,7 @@ background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);">
 
         		},
         		error : function() {
-        			//alert('Error occured');
+        			alert('No truck available');
         		},
         		async : false
         	})

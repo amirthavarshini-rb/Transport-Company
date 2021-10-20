@@ -1,7 +1,8 @@
 <!-- changed -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>Manager Page</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -266,20 +267,21 @@ color:white;
   <h1>Truck Details</h1>
   <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0"; style="background-color: gray">
+    <caption style="display:none"></caption>
      <thead>
         <tr>
-            <th>Description</th>
-  			<th>Vehicle type</th>
-            <th>Location</th>
-            <th>Status</th>
-  			<th>Vehicle NO</th>
-  <th>Owner Name</th>
-  <th>Owner Contact</th>
-  <th>Insurance Status</th>
-<th> Truck Id</th> 
+            <th scope="col">Description</th>
+  			<th scope="col">Vehicle type</th>
+            <th scope="col">Location</th>
+            <th scope="col">Status</th>
+  			<th scope="col">Vehicle NO</th>
+  <th scope="col">Owner Name</th>
+  <th scope="col">Owner Contact</th>
+  <th scope="col">Insurance Status</th>
+<th scope="col"> Truck Id</th> 
         </tr>
         </thead>
-    
+    <tbody style="display:none"><tr><td></td><td></td><td></td></tr></tbody>
     </table>
   </div>
   
@@ -332,7 +334,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
 <p1 id="p1"></p1> -->
 
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white; "  class="col-4 col-form-label">Vehicle ID<b style="color:red">*</b></label>
+    <label style="color: white; "  class="col-4 col-form-label">Vehicle ID<strong style="color:red">*</strong></label>
     <div class="col-8">
        <input style="width: 100%; height: 30px" class="form-control" required type="number" id="vid" onchange="truckFunctionID(this.value)" #emp_num>
     <p1  style="color: white;" id="p1" ></p1>
@@ -340,7 +342,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
   </div>
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white; " for="vtype" class="col-4 col-form-label">Vehicle Type<b style="color:red">*</b></label>
+    <label style="color: white; " for="vtype" class="col-4 col-form-label">Vehicle Type<strong style="color:red">*</strong></label>
     <div class="col-8">
    <!--    <input style="width: 100%; height: 30px" class="form-control" type="text" required value="" id="vtype" #emp_num> -->
       
@@ -362,7 +364,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
   
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white; " for="vstatus" class="col-4 col-form-label">Status<b style="color:red">*</b></label>
+    <label style="color: white; " for="vstatus" class="col-4 col-form-label">Status<strong style="color:red">*</strong></label>
     <div class="col-8">
      <!--   <input style="width: 100%;  height: 30px" class="form-control" type="text"  required value="" id="vstatus" #emp_num>-->
       <select  name="vstatus"  class="form-control" required type="text" value="" id="vstatus" style="width: 100%;  height: 30px" #emp_num>
@@ -376,7 +378,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
     <small style="color: white;">Format: TN-9999</small> -->
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label  style="color: white"  class="col-4 col-form-label">Vehicle Number<b style="color:red">*</b></label>
+    <label  style="color: white"  class="col-4 col-form-label">Vehicle Number<strong style="color:red">*</strong></label>
     <div class="col-8">
       <input style="width: 100%; height: 30px" pattern="[A-Z]{2}-[0-9]{4}"  class="form-control" type="text"  required  value="" id="vnum" onchange="truckFunctionNumber(this.value)" #emp_num>
      <p1  style="color: white;" id="p2" ></p1>
@@ -385,7 +387,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
   </div>
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label  style="color: white"  class="col-4 col-form-label">Owner<b style="color:red">*</b></label>
+    <label  style="color: white"  class="col-4 col-form-label">Owner<strong style="color:red">*</strong></label>
     <div class="col-8">
       <input style="width: 100% ;  height: 30px" class="form-control" type="text"  required value="" id="vowner" #emp_num>
     </div>
@@ -394,7 +396,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
   <!-- <input class="form-control" type="tel" pattern="[7-9]{1}[0-9]{9}" title="Enter a valid mobile number" required id="vonum" #emp_num>
     <small style="color: white;">Fomat: 9999999999</small>  -->
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label  style="color: white"  class="col-4 col-form-label">Owner Phone Number<b style="color:red">*</b></label>
+    <label  style="color: white"  class="col-4 col-form-label">Owner Phone Number<strong style="color:red">*</strong></label>
     <div class="col-8">
       <input style="width: 100% ;  height: 30px" class="form-control" type="tel" pattern="[7-9]{1}[0-9]{9}" title="Enter a valid mobile number" required value="" id="onum" #emp_num>
    <small style="color: white;">==>(Fomat: 9999999999)</small>
@@ -402,7 +404,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
   </div>
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label  style="color: white" for="insurance" class="col-4 col-form-label">Insurance<b style="color:red">*</b></label>
+    <label  style="color: white" for="insurance" class="col-4 col-form-label">Insurance<strong style="color:red">*</strong></label>
     <div class="col-8">
     <!--    <input style="width: 100% ;  height: 30px" class="form-control" type="text"  required value="" id="insurance" #emp_num>-->
       
@@ -415,7 +417,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
   </div>
   
    <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white; "  class="col-4 col-form-label">Description<b style="color:red">*</b></label>
+    <label style="color: white; "  class="col-4 col-form-label">Description<strong style="color:red">*</strong></label>
     <div class="col-8">
     <textarea rows="2" cols="10" class="form-control" type="number" value=""  required  id="des" #emp_num>  </textarea>
      <!--   <input style="width: 100%; height: 30px" class="form-control" type="number" value="" id="vid" #emp_num>-->
@@ -448,27 +450,27 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%) ; padding-top
   <!-- update/delete --> 
    
   <section id="table3">
-<div style="padding-left: 1000px">	 <input  style="background-color: gray; width: 25px;" readonly="readonly"><b style="color: white;"> Delete </b>
-		 <input  style="background-color: white; width: 25px; " readonly="readonly"><b style="color: white;" > Edit </b></div>
+<div style="padding-left: 1000px">	 <input  style="background-color: gray; width: 25px;" readonly="readonly"><strong style="color: white;"> Delete </strong>
+		 <input  style="background-color: white; width: 25px; " readonly="readonly"><strong style="color: white;" > Edit </strong></div>
   <!--for demo wrap-->
   <h1>Truck Details</h1>
   <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0"; style="background-color: gray">
-     
+     <caption style="display:none"></caption>
         <tr>
-          <th>Description</th>
-  <th>Vehicle type</th>
-  <th>Location</th>
-  <th>Status</th>
-  <th>Vehicle NO</th>
-  <th>Owner Name</th>
-  <th>Owner Contact</th>
-  <th>Insurance Status</th>
-<th> Truck Id</th> 
-<th  style="padding-left: 10px;">Manipulate</th>
+          <th scope="col">Description</th>
+  <th scope="col">Vehicle type</th>
+  <th scope="col">Location</th>
+  <th scope="col">Status</th>
+  <th scope="col">Vehicle NO</th>
+  <th scope="col">Owner Name</th>
+  <th scope="col">Owner Contact</th>
+  <th scope="col">Insurance Status</th>
+<th scope="col"> Truck Id</th> 
+<th scope="col" style="padding-left: 10px;">Manipulate</th>
  
         </tr>
-    
+    <tbody style="display:none"><tr><td></td><td></td><td></td></tr></tbody>
     </table>
   </div>
 
@@ -500,7 +502,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%); padding-top:
   </div>
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white" for="vvtype" class="col-4 col-form-label">Vehicle Type<b style="color:red">*</b></label>
+    <label style="color: white" for="vvtype" class="col-4 col-form-label">Vehicle Type<strong style="color:red">*</strong></label>
     <div class="col-8">
    <!--   <input  class="form-control"  required type="text"  id="vvtype" #emp_num>-->
      <select  name="vvtype"  class="form-control" required type="text" value="" id="vvtype" style="width: 100%; height: 30px"#emp_num>
@@ -520,7 +522,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%); padding-top:
   
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white" for="vvstatus" class="col-4 col-form-label">Status<b style="color:red">*</b></label>
+    <label style="color: white" for="vvstatus" class="col-4 col-form-label">Status<strong style="color:red">*</strong></label>
     <div class="col-8">
    <!--  <input  class="form-control"  required type="text"   id="vvstatus" #emp_num>--> 
  <select  name="vvstatus"  class="form-control" required type="text" value="" id="vvstatus" #emp_num>
@@ -533,7 +535,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%); padding-top:
   
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label  style="color: white" for="example-text-input" class="col-4 col-form-label">Vehicle Number<b style="color:red">*</b></label>
+    <label  style="color: white" for="example-text-input" class="col-4 col-form-label">Vehicle Number<strong style="color:red">*</strong></label>
     <div class="col-8">
 <!-- pattern="[A-Z]{2}-[0-9]{2}-[A-Z]{2}{3}{0}-[1-9999]{1}{2}{3}{4}" -->
      
@@ -543,7 +545,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%); padding-top:
   
   
    <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label  style="color: white" for="vvlocation" class="col-4 col-form-label">Location<b style="color:red">*</b></label>
+    <label  style="color: white" for="vvlocation" class="col-4 col-form-label">Location<strong style="color:red">*</strong></label>
     <div class="col-8">
   <!--      <input class="form-control" type="text" required name="vvlocation" id="vvlocation" #emp_num>-->
        <select name="vvlocation"  class="form-control" required type="text"  id="vvlocation"  style="width: 100%; height: 30px"#emp_num>
@@ -558,21 +560,21 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%); padding-top:
   
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label  style="color: white" for="example-text-input" class="col-4 col-form-label">Owner<b style="color:red">*</b></label>
+    <label  style="color: white" for="example-text-input" class="col-4 col-form-label">Owner<strong style="color:red">*</strong></label>
     <div class="col-8">
       <input class="form-control" type="text" required  id="vvowner" #emp_num>
     </div>
   </div>
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white"  class="col-4 col-form-label">Owner Phone Number<b style="color:red">*</b></label>
+    <label style="color: white"  class="col-4 col-form-label">Owner Phone Number<strong style="color:red">*</strong></label>
     <div class="col-8">
 <input class="form-control" type="tel" pattern="[7-9]{1}[0-9]{9}" title="Enter a valid mobile number" required id="vonum" #emp_num>
     <small style="color: white;">Fomat: 9999999999</small>    </div>
   </div>
   
   <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white" for="vinsurance" class="col-4 col-form-label">Insurance<b style="color:red">*</b></label>
+    <label style="color: white" for="vinsurance" class="col-4 col-form-label">Insurance<strong style="color:red">*</strong></label>
     <div class="col-8">
  <select  name="vinsurance"  class="form-control"  required type="text"  id="vinsurance" #emp_num>
    <option value=""></option>
@@ -583,7 +585,7 @@ background-image: linear-gradient(315deg, #000000 0%, #414141 74%); padding-top:
   </div>
   
    <div class="form-group row" style="width: 80%;margin-left: 10%;margin-top: 20px;">
-    <label style="color: white; "  class="col-4 col-form-label">Description<b style="color:red">*</b></label>
+    <label style="color: white; "  class="col-4 col-form-label">Description<strong style="color:red">*</strong></label>
     <div class="col-8">
     <textarea rows="2" cols="10" class="form-control" type="number"  required  id="vvdes" #emp_num>  </textarea>
      <!--   <input style="width: 100%; height: 30px" class="form-control" type="number" value="" id="vid" #emp_num>-->

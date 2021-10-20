@@ -177,13 +177,10 @@ public class HomeController {
 	@PostMapping(value = "/searchAllManager", produces = "application/json")
 	@ResponseBody
 	public List<User> searchAllManager(@RequestParam("token") String token) {
-		System.out.println("in fun");
 		User user = userRepo.findByUserName(jwtUtil.extractUsername(token));
 		if (user.getRole().equals("ADMIN")) {
-			System.out.println("here");
 			return (userRepo.findAllByRole("MANAGER"));
 		} else {
-			System.out.println("in else");
 			ArrayList<User> list = new ArrayList<User>();
 			User newUser = new User();
 			newUser.setUserName("Access Denied");
@@ -198,14 +195,12 @@ public class HomeController {
 			User user) {
 		user.setId(userRepo.findByUserName(userName).getId());
 		user.setRole("MANAGER");
-		System.out.println("inside up m");
 		int updateFlag = 0;
 		User currentUser = userRepo.findByUserName(jwtUtil.extractUsername(token));
 		if (currentUser.getRole().equals("ADMIN")) {
 			if (userRepo.existsByUserName(user.getUserName())) {
 				System.out.println("value exists");
 				if (user.getRole().equals("MANAGER")) {
-					System.out.println("man");
 					userRepo.save(user);
 					System.out.println(userRepo.findByUserName(user.getUserName()));
 					updateFlag = 1;
@@ -232,8 +227,8 @@ public class HomeController {
 		User currentUser = userRepo.findByUserName(jwtUtil.extractUsername(token));
 		if (currentUser.getRole().equals("ADMIN")) {
 			if (userRepo.existsByUserName(userName)) {
-				user=userRepo.findByUserName(userName);
-				userRepo.delete(user);
+				User u =userRepo.findByUserName(userName);
+				userRepo.delete(u);
 				updateFlag = 1;
 			}
 			if (updateFlag == 1) {
@@ -280,7 +275,6 @@ public class HomeController {
 	@PostMapping(value="/addTruck")
     @ResponseBody
 	public String addTrucks(@RequestParam("token") String token,Trucks truck) {
-    	System.out.println("################");
     	User currentUser = userRepo.findByUserName(jwtUtil.extractUsername(token));
 		if (currentUser.getRole().equals("MANAGER")||currentUser.getRole().equals("ADMIN")) {
 			if(!truckRepo.existsByTruckNum(truck.getTruckNum())) {
@@ -326,43 +320,36 @@ public class HomeController {
     	truck.setTid(truckRepo.findByTruckNum(truckNum).getTid());
     	
     	User user = userRepo.findByUserName(jwtUtil.extractUsername(token));
-    	
-    	System.out.println("&&&&&&77");
     	if(user.getRole().equals("MANAGER")||user.getRole().equals("ADMIN")) {
     		
-    		System.out.println("hello");
     		System.out.print(truckRepo.existsByTruckNum(truckNum));
     		
 		if (truckRepo.existsByTruckNum(truckNum)) {
-			System.out.println("&&&&&&111");
 			truck.setStatus(true);
 			truck.setLocation(truck.getLocation());
 			truck.setModel(truck.getModel());
 			//if model is changed , change in TruckModel
 			if(!(truckRepo.findByTruckNum(truckNum).getModel().equals(truck.getModel()))) {
-				System.out.println("&&&&&&2222");
 				//decrease count in old model
 				TruckModel truckModel = truckModelRepo.findByModelName(truckRepo.findByTruckNum(truckNum).getModel());
 				truckModel.setNumberOfTrucks(truckModel.getNumberOfTrucks()-1);
 				truckModelRepo.save(truckModel);
 				//check and increment in new model name
 				if(truckModelRepo.existsByModelName(truck.getModel())) {
-					System.out.println("&&&&&&3333");
 					truckModel.setTid(truckModelRepo.findByModelName(truck.getModel()).getTid());
 			    	truckModel.setModelName(truck.getModel());
 			    	truckModel.setNumberOfTrucks(truckModelRepo.findByModelName(truck.getModel()).getNumberOfTrucks()+1);
 			    	truckModelRepo.save(truckModel);
-			    	// // // checked till here.
 			    	
 			    	if(bookedTrucksRepo.existsByTruckNum(truckNum)) {
-						System.out.println("&&&&&&5555");
+						
 						BookedTrucks bookTruck = bookedTrucksRepo.findByTruckNum(truckNum);
 						bookTruck.setTruckModel(truck.getModel());
 						bookedTrucksRepo.save(bookTruck);
 					}
 			    	
 			    	if(availableRepo.existsByTruckNum(truckNum)) {
-						System.out.println("&&&&&&666");
+						
 						AvailableTrucks availableTruck = availableRepo.findByTruckNum(truckNum);
 						availableTruck.setTruckModel(truck.getModel());
 						availableRepo.save(availableTruck);
@@ -392,7 +379,6 @@ public class HomeController {
 		int updateFlag = 0;
 		User currentUser = userRepo.findByUserName(jwtUtil.extractUsername(token));
 		if (currentUser.getRole().equals("MANAGER")||currentUser.getRole().equals("ADMIN")) {
-			System.out.println("in del truck");
 			Trucks truck = truckRepo.findByTruckNum(truckNum);
 			if (truckRepo.existsByTruckNum(truckNum)) {
 				String mtruck = truckRepo.findByTruckNum(truckNum).getModel();
@@ -424,7 +410,6 @@ public class HomeController {
 	public List<Trucks> getTrucks(@RequestParam("token") String token) {
     	User user = userRepo.findByUserName(jwtUtil.extractUsername(token));
     	if(user.getRole().equals("MANAGER")||user.getRole().equals("ADMIN")) {
-    		System.out.println("#####");
     		
     	if(user.getRole().equals("MANAGER")) {
 		return truckRepo.findAllByLocation(user.getBranch());}
@@ -553,10 +538,10 @@ public class HomeController {
 	@ResponseBody
 	public String bookTruck(@RequestParam("token") String token, @RequestParam("model") String model,
 			@RequestParam("date") String date) {
-		System.out.println("1");
+		
 		User currentUser = userRepo.findByUserName(jwtUtil.extractUsername(token));
 		if (currentUser.getRole().equals("USER")) {
-			System.out.println("2");
+			
 			List<BookedTrucks> bookedList = bookedTrucksRepo.findAllByTruckModel(model);
 			System.out.println(bookedList.size()+"is the size of booked list");
 			List<BookedTrucks> bookedList2 = new ArrayList<BookedTrucks>(); 
@@ -572,9 +557,7 @@ public class HomeController {
 			}
 
 			else {
-				System.out.println("3");
-				// update this table while adding truck and while updating the truck
-				//System.out.println(availableRepo.findByTruckModel(model).getTruckModel());
+				
 				System.out.println(model);
 				if (availableRepo.existsByTruckModel(model)) {
 					System.out.println("equals model");
@@ -588,7 +571,8 @@ public class HomeController {
 					bookTruck.setBookedBy(currentUser.getUserName());
 					availableRepo.delete(availableRepo.findByTruckNum(i.getTruckNum()));
 					bookedTrucksRepo.save(bookTruck);
-					break;}
+					//break;
+					}
 					return("Your Truck is Booked and here is your truck number :"+bookTruck.getTruckNum());
 				} else {
 					return("No Trucks are available in this model");
@@ -657,11 +641,8 @@ public class HomeController {
 		String token = (String) session.getAttribute("token");
 		System.out.println(token);
 		User currentUser = userRepo.findByUserName(jwtUtil.extractUsername(token));
-		int nFlag=0;
-		System.out.println("hii");
-		if (currentUser.getRole().equals("ADMIN")||currentUser.getRole().equals("MANAGER")) {}
-		else{nFlag=1;throw new IOException("Access Denied"); }
-		if(nFlag==1) {System.exit(1);}
+		//int nFlag=0;
+		if (currentUser.getRole().equals("ADMIN")||currentUser.getRole().equals("MANAGER")) {
 		System.out.println("exporting pdf");
 		List<Trucks> alltruck= truckRepo.findAll();
 		ByteArrayInputStream bis = ExportPdf.truckReport(alltruck);
@@ -671,7 +652,11 @@ public class HomeController {
 		headers.add("Content-Disposition", "attachment;filename=trucks.pdf");
 
 		return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
-				.body(new InputStreamResource(bis));
+				.body(new InputStreamResource(bis));}
+		else{
+			//nFlag=1;
+			throw new IOException("Access Denied"); }
+		//if(nFlag==1) {System.exit(1);}
 	}
 	@RequestMapping(value = "/exportpdfManager", produces = MediaType.APPLICATION_PDF_VALUE)
     @ResponseBody
@@ -680,11 +665,8 @@ public class HomeController {
 		String token = (String) session.getAttribute("token");
 		System.out.println(token);
 		User currentUser = userRepo.findByUserName(jwtUtil.extractUsername(token));
-		int nFlag=0;
-		System.out.println("hii");
-		if (currentUser.getRole().equals("ADMIN")||currentUser.getRole().equals("MANAGER")) {}
-		else{nFlag=1;throw new IOException("Access Denied"); }
-		if(nFlag==1) {System.exit(1);}
+		//int nFlag=0;
+		if (currentUser.getRole().equals("ADMIN")||currentUser.getRole().equals("MANAGER")) {
 		System.out.println("exporting pdf");
 		List<User> allManager= userRepo.findAllByRole("MANAGER");
 		ByteArrayInputStream bis = ExportPdf.managerReport(allManager);
@@ -694,7 +676,11 @@ public class HomeController {
 		headers.add("Content-Disposition", "attachment;filename=managers.pdf");
 
 		return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
-				.body(new InputStreamResource(bis));
+				.body(new InputStreamResource(bis));}
+		else{
+			//nFlag=1;
+			throw new IOException("Access Denied"); }
+		//if(nFlag==1) {System.exit(1);}
 	}
 	
 	@RequestMapping(value = "/exportCSV")
